@@ -34,3 +34,6 @@ The project is organized as follows:
   - `Usage_13.11.2023.xlsx`: An example template for report generation.
 
 - **README.md**: The project's README file with usage instructions.
+
+## Credits
+This project was created by Aleksandar Dimitrov and is licensed under the MIT License. If you have any questions or comments, feel free to contact me at alexi.zein@gmail.com.
