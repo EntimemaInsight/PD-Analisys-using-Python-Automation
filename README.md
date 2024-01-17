@@ -1,4 +1,4 @@
-# Usage-Analisys-using-Python-Automation
+# Usage-Analisys-using-R-and-Python-Automation
 
 ## Description
 This project is an automation script for processing PD data from CSV and SQL files and generating Excel reports. It also sends notification emails with the reports attached.
