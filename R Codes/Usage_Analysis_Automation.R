@@ -1,6 +1,6 @@
 # 1. SET AN END DATE
 
-end_datе <- as.Date("2023-12-10")
+end_datГҐ <- as.Date("2023-12-10")
 
 
 # 2. ADD LINK FOR THE CARD REPORT
@@ -38,53 +38,53 @@ data <- data %>%
 
 data <- data %>%
   mutate(
-    Лимит = as.numeric(Лимит),
-    `Дължимо до зануляване` = as.numeric(`Дължимо до зануляване`),
-    `Разполагаема сума` = Лимит - `Дължимо до зануляване`
+    Г‹ГЁГ¬ГЁГІ = as.numeric(Г‹ГЁГ¬ГЁГІ),
+    `Г„ГєГ«Г¦ГЁГ¬Г® Г¤Г® Г§Г Г­ГіГ«ГїГўГ Г­ГҐ` = as.numeric(`Г„ГєГ«Г¦ГЁГ¬Г® Г¤Г® Г§Г Г­ГіГ«ГїГўГ Г­ГҐ`),
+    `ГђГ Г§ГЇГ®Г«Г ГЈГ ГҐГ¬Г  Г±ГіГ¬Г ` = Г‹ГЁГ¬ГЁГІ - `Г„ГєГ«Г¦ГЁГ¬Г® Г¤Г® Г§Г Г­ГіГ«ГїГўГ Г­ГҐ`
   )
 
   
 desired_products <- c("AXI 2", 
                       "AXI 2-500",
                       "Visa Free ATM World",
-                      "Visa Бяла Карта - SC",
-                      "Бяла Карта", 
-                      "Бяла Карта – само лихва", 
-                      "Бяла Карта 2",
-                      "Бяла Карта 3", 
-                      "Бяла Карта 3 - migrated",
-                      "Бяла Карта 4.2%",
-                      "Бяла Карта Gold - 10%",
-                      "Бяла Карта Gold - 5%",                                         
-                      "ИАМ")
+                      "Visa ГЃГїГ«Г  ГЉГ Г°ГІГ  - SC",
+                      "ГЃГїГ«Г  ГЉГ Г°ГІГ ", 
+                      "ГЃГїГ«Г  ГЉГ Г°ГІГ  вЂ“ Г±Г Г¬Г® Г«ГЁГµГўГ ", 
+                      "ГЃГїГ«Г  ГЉГ Г°ГІГ  2",
+                      "ГЃГїГ«Г  ГЉГ Г°ГІГ  3", 
+                      "ГЃГїГ«Г  ГЉГ Г°ГІГ  3 - migrated",
+                      "ГЃГїГ«Г  ГЉГ Г°ГІГ  4.2%",
+                      "ГЃГїГ«Г  ГЉГ Г°ГІГ  Gold - 10%",
+                      "ГЃГїГ«Г  ГЉГ Г°ГІГ  Gold - 5%",                                         
+                      "Г€ГЂГЊ")
 
-filtered_data <- data[data$`Текущ издател` == "EPS" &
-                          data$Продукт %in% desired_products &
-                          data$`Разполагаема сума` > 70 &
-                          data$`Статус на картата` == "активна" &
-                          data$`Дни забава` == 0, ]
-
-
+filtered_data <- data[data$`Г’ГҐГЄГіГ№ ГЁГ§Г¤Г ГІГҐГ«` == "EPS" &
+                          data$ГЏГ°Г®Г¤ГіГЄГІ %in% desired_products &
+                          data$`ГђГ Г§ГЇГ®Г«Г ГЈГ ГҐГ¬Г  Г±ГіГ¬Г ` > 70 &
+                          data$`Г‘ГІГ ГІГіГ± Г­Г  ГЄГ Г°ГІГ ГІГ ` == "Г ГЄГІГЁГўГ­Г " &
+                          data$`Г„Г­ГЁ Г§Г ГЎГ ГўГ ` == 0, ]
 
 
-columns_to_keep <- c("Текущ издател",
-                   "Продукт",
+
+
+columns_to_keep <- c("Г’ГҐГЄГіГ№ ГЁГ§Г¤Г ГІГҐГ«",
+                   "ГЏГ°Г®Г¤ГіГЄГІ",
                    "EasyClientNumber",
-                   "Лимит",
-                   "Клиент",
-                   "ЕГН",
-                   "Телефон", 
-                   "Статус на картата",
-                   "Дължимо до зануляване",
-                   "Разполагаема сума",
-                   "Дни забава",
-                   "Дата на последно теглене на пари от картата")
+                   "Г‹ГЁГ¬ГЁГІ",
+                   "ГЉГ«ГЁГҐГ­ГІ",
+                   "Г…ГѓГЌ",
+                   "Г’ГҐГ«ГҐГґГ®Г­", 
+                   "Г‘ГІГ ГІГіГ± Г­Г  ГЄГ Г°ГІГ ГІГ ",
+                   "Г„ГєГ«Г¦ГЁГ¬Г® Г¤Г® Г§Г Г­ГіГ«ГїГўГ Г­ГҐ",
+                   "ГђГ Г§ГЇГ®Г«Г ГЈГ ГҐГ¬Г  Г±ГіГ¬Г ",
+                   "Г„Г­ГЁ Г§Г ГЎГ ГўГ ",
+                   "Г„Г ГІГ  Г­Г  ГЇГ®Г±Г«ГҐГ¤Г­Г® ГІГҐГЈГ«ГҐГ­ГҐ Г­Г  ГЇГ Г°ГЁ Г®ГІ ГЄГ Г°ГІГ ГІГ ")
 
 
 data_csv <- filtered_data %>%
   select(all_of(columns_to_keep)) %>%
-  rename(`Дата на последна транзакция` = `Дата на последно теглене на пари от картата`) %>%
-  mutate(`Дата на последна транзакция` = format(as.POSIXct(`Дата на последна транзакция`, format = "%Y-%m-%d %H:%M"), "%d.%m.%Y"))
+  rename(`Г„Г ГІГ  Г­Г  ГЇГ®Г±Г«ГҐГ¤Г­Г  ГІГ°Г Г­Г§Г ГЄГ¶ГЁГї` = `Г„Г ГІГ  Г­Г  ГЇГ®Г±Г«ГҐГ¤Г­Г® ГІГҐГЈГ«ГҐГ­ГҐ Г­Г  ГЇГ Г°ГЁ Г®ГІ ГЄГ Г°ГІГ ГІГ `) %>%
+  mutate(`Г„Г ГІГ  Г­Г  ГЇГ®Г±Г«ГҐГ¤Г­Г  ГІГ°Г Г­Г§Г ГЄГ¶ГЁГї` = format(as.POSIXct(`Г„Г ГІГ  Г­Г  ГЇГ®Г±Г«ГҐГ¤Г­Г  ГІГ°Г Г­Г§Г ГЄГ¶ГЁГї`, format = "%Y-%m-%d %H:%M"), "%d.%m.%Y"))
 
 
 
@@ -102,8 +102,8 @@ sql_query_1 <- read_file("J:/BAR/R Scripts/R_scripts_PD_reports/Usage_Analisys_A
 start_time <- Sys.time()
 contract_date <- DBI::dbGetQuery(myc, sql_query_1) %>%
   select(EasyClientNumber, ContractDate) %>%
-  rename(`Дата на подписване на договор` = ContractDate) %>%
-  mutate(`Дата на подписване на договор` = format(as.Date(`Дата на подписване на договор`), format = "%d.%m.%Y"))
+  rename(`Г„Г ГІГ  Г­Г  ГЇГ®Г¤ГЇГЁГ±ГўГ Г­ГҐ Г­Г  Г¤Г®ГЈГ®ГўГ®Г°` = ContractDate) %>%
+  mutate(`Г„Г ГІГ  Г­Г  ГЇГ®Г¤ГЇГЁГ±ГўГ Г­ГҐ Г­Г  Г¤Г®ГЈГ®ГўГ®Г°` = format(as.Date(`Г„Г ГІГ  Г­Г  ГЇГ®Г¤ГЇГЁГ±ГўГ Г­ГҐ Г­Г  Г¤Г®ГЈГ®ГўГ®Г°`), format = "%d.%m.%Y"))
 
 print(paste("Done in", round(difftime(Sys.time(), start_time, unit = "mins"), 2), "minutes"))
 
@@ -121,8 +121,8 @@ sql_query_1 <- read_file("J:/BAR/R Scripts/R_scripts_PD_reports/Usage_Analisys_A
 start_time <- Sys.time()
 contract_date <- DBI::dbGetQuery(myc, sql_query_1) %>%
   select(EasyClientNumber, ContractDate) %>%
-  rename(`Дата на подписване на договор` = ContractDate) %>%
-  mutate(`Дата на подписване на договор` = format(as.Date(`Дата на подписване на договор`), format = "%d.%m.%Y"))
+  rename(`Г„Г ГІГ  Г­Г  ГЇГ®Г¤ГЇГЁГ±ГўГ Г­ГҐ Г­Г  Г¤Г®ГЈГ®ГўГ®Г°` = ContractDate) %>%
+  mutate(`Г„Г ГІГ  Г­Г  ГЇГ®Г¤ГЇГЁГ±ГўГ Г­ГҐ Г­Г  Г¤Г®ГЈГ®ГўГ®Г°` = format(as.Date(`Г„Г ГІГ  Г­Г  ГЇГ®Г¤ГЇГЁГ±ГўГ Г­ГҐ Г­Г  Г¤Г®ГЈГ®ГўГ®Г°`), format = "%d.%m.%Y"))
 
 print(paste("Done in", round(difftime(Sys.time(), start_time, unit = "mins"), 2), "minutes"))
 
@@ -141,8 +141,8 @@ sql_query_3 <- read_file("J:/BAR/R Scripts/R_scripts_PD_reports/Usage_Analisys_A
 start_time <- Sys.time()
 first_activation_date <- DBI::dbGetQuery(myc, sql_query_3) %>%
   select(EasyClientNumber, Date) %>%
-  rename(`Дата на първа активация на картата` = Date) %>%
-  mutate(`Дата на първа активация на картата` = gsub("-", ".", `Дата на първа активация на картата`))
+  rename(`Г„Г ГІГ  Г­Г  ГЇГєГ°ГўГ  Г ГЄГІГЁГўГ Г¶ГЁГї Г­Г  ГЄГ Г°ГІГ ГІГ ` = Date) %>%
+  mutate(`Г„Г ГІГ  Г­Г  ГЇГєГ°ГўГ  Г ГЄГІГЁГўГ Г¶ГЁГї Г­Г  ГЄГ Г°ГІГ ГІГ ` = gsub("-", ".", `Г„Г ГІГ  Г­Г  ГЇГєГ°ГўГ  Г ГЄГІГЁГўГ Г¶ГЁГї Г­Г  ГЄГ Г°ГІГ ГІГ `))
 
 print(paste("Done in", round(difftime(Sys.time(), start_time, unit = "mins"), 2), "minutes"))
 
@@ -152,24 +152,24 @@ DBI::dbDisconnect(myc)
 
 # Merge CSV file, first_activation_date, contract_date and consent_client
 
-desired_order <- c("Текущ издател",
-                   "Продукт",       
+desired_order <- c("Г’ГҐГЄГіГ№ ГЁГ§Г¤Г ГІГҐГ«",
+                   "ГЏГ°Г®Г¤ГіГЄГІ",       
                    "EasyClientNumber",
-                   "Лимит",
-                   "Клиент",
-                   "ЕГН",
-                   "Телефон", 
-                   "Статус на картата",
-                   "Дата на първа активация на картата",
-                   "Дължимо до зануляване",
-                   "Разполагаема сума",
-                   "Дни забава",
+                   "Г‹ГЁГ¬ГЁГІ",
+                   "ГЉГ«ГЁГҐГ­ГІ",
+                   "Г…ГѓГЌ",
+                   "Г’ГҐГ«ГҐГґГ®Г­", 
+                   "Г‘ГІГ ГІГіГ± Г­Г  ГЄГ Г°ГІГ ГІГ ",
+                   "Г„Г ГІГ  Г­Г  ГЇГєГ°ГўГ  Г ГЄГІГЁГўГ Г¶ГЁГї Г­Г  ГЄГ Г°ГІГ ГІГ ",
+                   "Г„ГєГ«Г¦ГЁГ¬Г® Г¤Г® Г§Г Г­ГіГ«ГїГўГ Г­ГҐ",
+                   "ГђГ Г§ГЇГ®Г«Г ГЈГ ГҐГ¬Г  Г±ГіГ¬Г ",
+                   "Г„Г­ГЁ Г§Г ГЎГ ГўГ ",
                    "Marketig_consent",
                    "SMS_Consent",
                    "Email_Consent",
                    "Email",
-                   "Дата на подписване на договор",
-                   "Дата на последна транзакция"
+                   "Г„Г ГІГ  Г­Г  ГЇГ®Г¤ГЇГЁГ±ГўГ Г­ГҐ Г­Г  Г¤Г®ГЈГ®ГўГ®Г°",
+                   "Г„Г ГІГ  Г­Г  ГЇГ®Г±Г«ГҐГ¤Г­Г  ГІГ°Г Г­Г§Г ГЄГ¶ГЁГї"
 )
 
 
@@ -186,7 +186,29 @@ data_csv <- data_csv %>%
 writeData(workbook, sheet = "Sheet1", x = data_csv, startRow = 2, startCol = 1, colNames = FALSE)
 saveWorkbook(workbook, file = output_path, overwrite = TRUE)
 
+# Email Anouncing
 
+outlook <- COMCreate("Outlook.Application")
+mail <- outlook$CreateItem(0)
+mail[["Subject"]] <- "Closed Cards"
+
+
+message <- "<html><body>"
+message <- paste(message, "<p>Dear colleagues,</p>")
+message <- paste(message, "<p>This email is automatically generated and contains information about added data.</p>")
+message <- paste(message, "<p>Date and time of generation: ", format(Sys.time(), "%d %B %Y, %H:%M"), "</p>")
+message <- paste(message, "<p>The Closed Cards data has been added successfully and can be found in the shared folder on PD.</p>")
+message <- paste(message, "<p>J:/Product Development/Product Development_SHARED/BAR/Usage/Usage Analysis</p>")
+message <- paste(message, "</body></html>")
+
+
+mail[["HTMLBody"]] <- message
+
+# mail[["To"]] <- "alexi.zein@gmail.com"
+
+mail$Send()
+
+cat("The notification email has been successfully sent.\n")
 
 
 
