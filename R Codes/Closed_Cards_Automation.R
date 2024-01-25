@@ -61,7 +61,7 @@ conn <- dbConnect(odbc::odbc(),
                   Trusted_Connection = "Yes")
 
 data_sql <- dbGetQuery(conn, sql_query) %>%
-  mutate(CloseReason = ifelse(CloseReason %in% c("Внесено над лимита", "Недостиг до зануляване"), "VoluntaryChurn", "Cession"),
+  mutate(CloseReason = ifelse(CloseReason %in% c("Г‚Г­ГҐГ±ГҐГ­Г® Г­Г Г¤ Г«ГЁГ¬ГЁГІГ ", "ГЌГҐГ¤Г®Г±ГІГЁГЈ Г¤Г® Г§Г Г­ГіГ«ГїГўГ Г­ГҐ"), "VoluntaryChurn", "Cession"),
          Date = format(as.Date(Date), "%d.%m.%Y"))
 
 
@@ -70,4 +70,27 @@ workbook <- loadWorkbook(input)
 writeData(workbook, sheet = "Sheet1", x = data_sql, startRow = 2, startCol = 1, colNames = FALSE)
 saveWorkbook(workbook, file = output, overwrite = TRUE)
 
+# Email Anouncing
+
+outlook <- COMCreate("Outlook.Application")
+mail <- outlook$CreateItem(0)
+mail[["Subject"]] <- "Closed Cards"
+
+
+message <- "<html><body>"
+message <- paste(message, "<p>Dear colleagues,</p>")
+message <- paste(message, "<p>This email is automatically generated and contains information about added data.</p>")
+message <- paste(message, "<p>Date and time of generation: ", format(Sys.time(), "%d %B %Y, %H:%M"), "</p>")
+message <- paste(message, "<p>The Closed Cards data has been added successfully and can be found in the shared folder on PD.</p>")
+message <- paste(message, "<p>J:/Product Development/Product Development_SHARED/BAR/Usage/Usage Analysis</p>")
+message <- paste(message, "</body></html>")
+
+
+mail[["HTMLBody"]] <- message
+
+# mail[["To"]] <- "alexi.zein@gmail.com"
+
+mail$Send()
+
+cat("The notification email has been successfully sent.\n")
 
